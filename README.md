@@ -1,1 +1,1 @@
-# Scholar-planet-institutr
+# scholar-planet-institute
