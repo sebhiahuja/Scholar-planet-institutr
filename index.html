@@ -1,0 +1,290 @@
+
+
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scholar Planet Institute</title>
+  <meta name="description" content="Scholar Planet - Modern coaching & education institute">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23031f3a'/><circle cx='50' cy='50' r='30' fill='%23c59b2e'/></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy: #031B2E; /* deep navy */
+      --gold: #C59B2E; /* warm gold */
+      --muted: #6b7280;
+      --bg: #FBFDFF;
+      --glass: rgba(255,255,255,0.06);
+      --container: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:var(--navy);background:linear-gradient(180deg,#fbfdff, #f6f8fb);}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--container);margin:0 auto;padding:0 18px}
+
+    /* NAVBAR */
+    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,0.6);backdrop-filter:blur(6px);box-shadow:0 6px 18px rgba(3,27,46,0.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{display:inline-flex;align-items:center;gap:10px}
+    .logo svg{width:44px;height:44px}
+    .brand h1{font-size:18px;margin:0;font-weight:700;color:var(--navy)}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{font-weight:600;color:var(--navy);padding:8px;border-radius:8px}
+    nav a:hover{background:var(--glass)}
+    .cta{background:linear-gradient(90deg,var(--gold),#dfb63b);padding:8px 14px;border-radius:8px;color:white;font-weight:700}
+
+    /* Mobile */
+    .mobile-toggle{display:none;border:0;background:transparent}
+    .mobile-menu{display:none}
+
+    /* HERO */
+    .hero{padding:48px 0 40px;display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center}
+    .hero-left h2{font-size:36px;margin:0 0 12px;color:var(--navy);line-height:1.05}
+    .hero-left p{color:var(--muted);margin:0 0 20px}
+    .hero-actions{display:flex;gap:12px}
+    .card-hero{background:linear-gradient(180deg,rgba(3,27,46,0.03),rgba(3,27,46,0.01));padding:22px;border-radius:12px;box-shadow:0 6px 20px rgba(3,27,46,0.04)}
+    .hero-right{background:linear-gradient(180deg,#fff, #fbfbfb);padding:18px;border-radius:12px;border:1px solid rgba(3,27,46,0.04)}
+
+    /* SECTIONS */
+    section{padding:40px 0}
+    h3{color:var(--navy);margin:0 0 16px}
+    .muted{color:var(--muted)}
+
+    /* cards */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:white;border-radius:12px;padding:18px;border:1px solid rgba(3,27,46,0.04);box-shadow:0 8px 24px rgba(3,27,46,0.03);transition:transform .3s,box-shadow .3s}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(3,27,46,0.08)}
+    .card h4{margin:0 0 8px}
+    .card p{margin:0;color:var(--muted)}
+
+    /* faculty */
+    .faculty-list{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .faculty-item{background:linear-gradient(180deg,#fff,#f9fafb);padding:12px;border-radius:10px;text-align:center}
+    .avatar{width:86px;height:86px;border-radius:50%;display:inline-block;background:linear-gradient(135deg,var(--gold),#e6be4a);color:white;font-weight:700;line-height:86px}
+
+    /* contact */
+    .contact{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start}
+    .input,textarea{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(3,27,46,0.08);margin-bottom:12px}
+    .btn{background:var(--navy);color:white;padding:10px 14px;border-radius:8px;border:0;font-weight:700}
+
+    /* Footer */
+    footer{padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
+
+    /* responsive */
+    @media (max-width:1000px){.hero{grid-template-columns:1fr 340px}.grid{grid-template-columns:repeat(2,1fr)}.faculty-list{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:760px){
+      nav ul{display:none}
+      .mobile-toggle{display:block}
+      .mobile-menu{display:block;padding:12px 0}
+      .hero{grid-template-columns:1fr;gap:20px}
+      .contact{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .faculty-list{grid-template-columns:1fr}
+    }
+
+    /* small touches */
+    .kicker{display:inline-block;background:linear-gradient(90deg,var(--gold),#e5bd3e);padding:6px 10px;border-radius:999px;color:white;font-weight:700;margin-bottom:12px}
+    .muted-small{color:var(--muted);font-size:14px}
+    .link-gold{color:var(--gold);font-weight:700}
+
+    /* subtle reveal */
+    .reveal{opacity:0;transform:translateY(10px);transition:all .6s ease}
+    .reveal.show{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">
+          <!-- Inline SVG logo (generated) -->
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="120" height="120" rx="18" fill="#031B2E"/>
+            <g transform="translate(22,18)">
+              <path d="M8 6 L40 0 L72 6 L40 36 Z" fill="#C59B2E"/>
+              <rect x="36" y="34" width="8" height="46" rx="4" fill="#C59B2E"/>
+              <rect x="4" y="44" width="64" height="8" rx="4" fill="#fff" opacity="0.06"/>
+            </g>
+          </svg>
+          <div>
+            <h1>Scholar Planet</h1>
+            <div class="muted-small">Institute • Coaching • Growth</div>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <button class="mobile-toggle" aria-label="Open menu">☰</button>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#faculty">Faculty</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="mobile-menu container" style="display:none">
+      <a href="#home">Home</a> • <a href="#about">About</a> • <a href="#courses">Courses</a> • <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <span class="kicker">Admissions Open</span>
+        <h2 class="reveal">Premium Coaching, Practical Learning — <span class="link-gold">Shape Your Future</span></h2>
+        <p class="muted reveal">Scholar Planet offers comprehensive classes for school and competitive exams with experienced faculty and proven results.</p>
+        <div class="hero-actions reveal">
+          <a class="cta" href="#courses">Explore Courses</a>
+          <a class="link-gold" href="#contact">Get in Touch</a>
+        </div>
+
+        <div style="margin-top:20px;display:flex;gap:12px;align-items:center" class="reveal">
+          <div style="background:white;padding:12px;border-radius:10px;border:1px solid rgba(3,27,46,0.04)">
+            <strong>Batch starting:</strong><div class="muted-small">1 March 2026</div>
+          </div>
+          <div style="background:linear-gradient(90deg,#fff,#fff);padding:12px;border-radius:10px;border:1px solid rgba(3,27,46,0.04)">
+            <strong>Mode:</strong><div class="muted-small">Online & Offline</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right card-hero reveal">
+        <h3>Quick Programs</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><div><strong>School Tuition</strong><div class="muted-small">6th - 12th</div></div><div class="muted-small">₹3,500 / mo</div></div>
+          <div style="display:flex;justify-content:space-between;align-items:center"><div><strong>Exam Prep</strong><div class="muted-small">JEE / NEET</div></div><div class="muted-small">₹6,999</div></div>
+          <div style="display:flex;justify-content:space-between;align-items:center"><div><strong>Crash Course</strong><div class="muted-small">Revision pack</div></div><div class="muted-small">₹2,499</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h3>About Us</h3>
+      <p class="muted">Scholar Planet is focused on delivering results with a student-first approach, experienced teachers, and structured curriculum. We blend conceptual clarity with regular practice and assessments.</p>
+    </section>
+
+    <section id="courses">
+      <h3>Our Courses</h3>
+      <div class="grid">
+        <div class="card reveal">
+          <h4>Classroom Programs</h4>
+          <p>Regular classroom sessions with graded tests and mentor support.</p>
+        </div>
+        <div class="card reveal">
+          <h4>Online Live Classes</h4>
+          <p>Live interactive sessions with recorded revisions.</p>
+        </div>
+        <div class="card reveal">
+          <h4>Crash Courses</h4>
+          <p>Short, focused revisions for board & entrance exams.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faculty">
+      <h3>Faculty</h3>
+      <div class="faculty-list">
+        <div class="faculty-item reveal">
+          <div class="avatar">AS</div>
+          <h4 style="margin:8px 0 4px">Beerinder singh</h4>
+          <div class="muted-small">Physics • 13 yrs exp</div>
+        </div>
+        <div class="faculty-item reveal">
+          <div class="avatar">RK</div>
+          <h4 style="margin:8px 0 4px">Beerinder singh</h4>
+          <div class="muted-small">Mathematics • 13 yrs exp</div>
+       
+        </div>
+        <div class="faculty-item reveal">
+          <div class="avatar">PG</div>
+          <h4 style="margin:8px 0 4px">Beerinder singh</h4>
+          <div class="muted-small">Chemistry • 13 yrs exp</div>
+                  </div>
+        <div class="faculty-item reveal">
+          <div class="avatar">PG</div>
+          <h4 style="margin:8px 0 4px">shelja sharma arora</h4>
+          <div class="muted-small">Humanities • 13 yrs exp</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h3>Contact Us</h3>
+      <div class="contact">
+        <div>
+          <p class="muted">Have questions? Drop a message and our team will reach out within 24 hours.</p>
+          <form id="contactForm" onsubmit="return submitForm(event)">
+            <input class="input" id="name" placeholder="Your name" required>
+            <input class="input" id="email" placeholder="Email" type="email" required>
+            <input class="input" id="subject" placeholder="Subject">
+            <textarea id="message" class="input" rows="6" placeholder="Message" required></textarea>
+            <button class="btn" type="submit">Send Message</button>
+            <div id="formMsg" style="margin-top:10px;color:var(--navy);"></div>
+          </form>
+        </div>
+
+        <div style="background:white;padding:16px;border-radius:12px;border:1px solid rgba(3,27,46,0.04)">
+          <h4>Reach Us</h4>
+        
+          <p class="muted-small">Phone: +91 98765 43210</p>
+          <p class="muted-small">Email:sebhi.ahuja@gmail.com</p>
+          <div style="margin-top:8px"><strong>Follow us</strong><div class="muted-small"> Instagram • YouTube</div></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">© <span id="year"></span> Scholar Planet • All rights reserved</div>
+    </footer>
+  </main>
+
+  <script>
+    // small helpers: mobile toggle, reveal on scroll, smooth scrolling
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toggle = document.querySelector('.mobile-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    toggle.addEventListener('click', ()=>{
+      mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // smooth links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        if(window.innerWidth < 760) mobileMenu.style.display='none';
+      });
+    });
+
+    // reveal
+    const revealElems = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('show'); });
+    },{threshold:0.12});
+    revealElems.forEach(e=>observer.observe(e));
+
+    // form submit (client-side only)
+    function submitForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      if(!name||!email||!msg){document.getElementById('formMsg').textContent='Please fill required fields.';return false}
+      document.getElementById('formMsg').textContent='Thanks '+name+' — your message is noted (demo).';
+      // To enable real submissions: integrate Formspree/Google Forms or server endpoint here.
+      document.getElementById('contactForm').reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
